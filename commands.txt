@@ -1,0 +1,2 @@
+1. npx drizzle-kit push:pg - to push all changes applied to the schemas 
+2. npx drizzle-kit studio - to open drizzle dashboard
