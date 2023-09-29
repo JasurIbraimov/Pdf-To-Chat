@@ -10,3 +10,6 @@ export default {
         connectionString: process.env.DATABASE_URL!,
     },
 } satisfies Config;
+
+
+// 50 mins
