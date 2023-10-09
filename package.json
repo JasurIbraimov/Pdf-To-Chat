@@ -11,7 +11,7 @@
     "neon-db"
   ],
   "scripts": {
-    "dev": "set NODE_OPTIONS='--max-old-space-size=8192' && next dev",
+    "dev": "set NODE_OPTIONS=\"--max-old-space-size=8192\" && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

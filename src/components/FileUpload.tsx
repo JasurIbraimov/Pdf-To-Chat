@@ -49,6 +49,7 @@ const FileUpload = (props: Props) => {
                 mutate(data, {
                     onSuccess: (data) => {
                         toast.success(data.message)
+                        console.log(data)
                     },
                     onError: (error) => {
                         toast.error("Something went wrong!")

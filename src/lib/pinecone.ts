@@ -1,16 +1,12 @@
 import { Pinecone } from "@pinecone-database/pinecone";
 import { downloadFromS3 } from "./s3-server";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
-let pinecone: Pinecone | null = null;
 
 export const getPineconeClient = () => {
-  if (!pinecone) {
-    pinecone = new Pinecone({
-      apiKey: process.env.PINECONE_API_KEY!,
-      environment: process.env.PINECONE_ENV!,
-    });
-  }
-  return pinecone;
+  return new Pinecone({
+    apiKey: process.env.PINECONE_API_KEY!,
+    environment: process.env.PINECONE_ENV!,
+  });
 };
 
 export async function loadS3IntoPinecone(fileKey: string) {
@@ -20,7 +16,7 @@ export async function loadS3IntoPinecone(fileKey: string) {
   if (!fileName) {
     throw new Error("Could not download from S3");
   }
-  const loader = new PDFLoader(fileName);
+  const loader = new PDFLoader(fileName as string);
   const pages = await loader.load();
   return pages;
 }
